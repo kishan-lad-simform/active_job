@@ -1,0 +1,32 @@
+<div class="container text-center">
+  <div class="row justify-content-md-center"> 
+    <div class="col">
+    <h1>All Events</h1>
+    <%= link_to 'Back', users_path %>
+      <table class="table table-striped">
+        <thead>
+          <tr> 
+            <th scope="col"> Id </th> 
+            <th scope="col"> Event Name </th>
+            <th scope="col"> Description </th>
+            <th scope="col"> Date </th> 
+            <th scope="col" colspan=2> Actions </th> 
+            
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @events.each do |event| %>
+            <tr>
+              <td> <%= event.id %> </td>
+              <td> <%= event.event_name %> </td>
+              <td> <%= event.description %> </td>
+              <td> <%= event.event_date %> </td> 
+              <td> <%= link_to "Participate", participate_event_path(event.id) %> </td> 
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
