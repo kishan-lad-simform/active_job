@@ -2,7 +2,6 @@ class SendEmployeeMailJob < ApplicationJob
   queue_as :default
 
   def perform(user_id)
-  
     @user = User.find(user_id)
     @employee = Employee.create(
       name: @user.name,

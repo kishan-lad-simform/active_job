@@ -11,8 +11,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      SendMailJob.perform_now(@user.id)
-      SendEmployeeMailJob.set(wait: 2.minutes).perform_later(@user.id) 
       redirect_to users_path
     else
       render :new, status: 422
